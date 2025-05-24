@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro Clock</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="divide">
+        <div id="tomoto-background"></div>
+        <div class="container">
+            <div id="switch">
+                <button id="work" class="tab">Work</button>
+                <button id="break" class="tab">Break</button>
+                <button id="long-break" class="tab">Long Break</button>
+            </div>
+
+            <div id="timer">25:00</div>
+            <div id="clock-state"></div>
+            <div id="show-session"></div>
+
+            <div id="task-specific">
+                <div id="enter-task-textbox">
+                    <input id="task-input" type="text" placeholder="Enter task">
+                </div>
+
+                <div id="show-task"></div>
+            </div>
+
+            <div>
+                <button id="start-button" class="operation-button active" type="submit">Start</button>
+                <button id="end-button" class="operation-button inactive" type="submit">End</button>
+            </div>
+
+        </div>
+    </div>
+    
+
+    <script src="../js/script.js"></script>
+    
+</body>
+</html>
