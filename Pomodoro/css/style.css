@@ -11,18 +11,10 @@
     justify-content: center;
 }
 
-#tomoto-background {
-    width: 30%;
-    background: url("../images/5_tips_for_planting_your_own_tomatoes_-_Atlanta_Magazine-removebg-preview.png") no-repeat center;
-    background-size: auto;
-    background-color: aqua;
-    z-index: -1;
-}
-
 .container {
-    background-color: bisque;
     width: 50%;
     height: 100vh;
+    margin: auto;
     position: relative;
     z-index: 1;
     display: flex;
@@ -33,7 +25,7 @@
 }
 
 #switch {
-    background-color: aquamarine;
+    background-color: #ffabab;
     padding: 1rem;
     display: flex;
     flex-direction: row;
@@ -42,17 +34,35 @@
 }
 
 #switch .tab {
-    background-color: aqua;
+    width: 10rem;
     padding: 0.8rem;
+    font-family: "Comfortaa", sans-serif;
+    font-weight: 500;
+}
+
+#switch .tab:hover {
+    cursor: pointer;
+}
+
+#switch .tab-active {
+    background-color: cadetblue;
+}
+
+#switch .tab-inactive {
+    background-color: burlywood;
 }
 
 #timer {
-    padding: 1rem;
+    padding: 2rem;
+    height: 4rem;
+    border-radius: 100%;
     background-color: brown;
-    position: static;
     /* Text */
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 500;
     font-size: 3rem;
+
+    color: #fff;
 }
 
 #enter-task-textbox {
@@ -62,7 +72,8 @@
 }
 
 #enter-task-textbox label {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: "Comfortaa", sans-serif;
+    font-weight: 500;
     font-size: 1.5rem;
 }
 
@@ -70,10 +81,23 @@
     padding: 0.5rem;
 }
 
+#show-task {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
 .operation-button {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    padding: 1rem;
+    font-family: "Comfortaa", sans-serif;
+    font-weight: 500;
     font-size: 1.5rem;
     background-color: rgb(224, 184, 184);
+}
+
+.operation-button:hover {
+    cursor: pointer;
 }
 
 .active {

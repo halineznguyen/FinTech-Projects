@@ -31,6 +31,9 @@ function startTimer() {
     startButton.classList.add("inactive");
     endButton.classList.remove("inactive");
     endButton.classList.add("active");
+
+    taskTextBox.classList.add("inactive");
+    taskTextBox.classList.remove("active");
 }
 
 function endTimer() {
@@ -60,7 +63,7 @@ function timerCount() {
         if (currentTab === "work") {
             if (sessionCount === 4) {
                 currentTab = "long-break";
-                sessionCount = 1;
+                sessionCount = 0;
                 console.log("To long break count:" + sessionCount);
             } else {
                 currentTab = "break";
@@ -68,11 +71,12 @@ function timerCount() {
             }
         } else if (currentTab === "break" || currentTab === "long-break") {
             currentTab = "work";
-            sessionCount++;
             console.log("To work count:" + sessionCount);
+            sessionCount++;
         }
         showSession.innerHTML = "Work Session #" + sessionCount;
         switchMode(currentTab);
+        switchTab(currentTab);
         console.log("After switch:" + currentTab);
         endTimer();
     return;
@@ -92,14 +96,40 @@ function switchMode(currentTab) {
     clearInterval(timer);
     if (currentTab === "work") {
         workMode();
-        clockState.innerHTML = "Let's get to work!"
+        clockState.innerHTML = "Let's get to work!";
     } else if (currentTab === "break") {
         breakMode();
-        clockState.innerHTML = "Time's up! Let's take a break!"
+        clockState.innerHTML = "Time's up! Let's take a break!";
     }
     if (currentTab === "long-break") {
         longBreakMode();
-        clockState.innerHTML = "Time to take a long break!"
+        clockState.innerHTML = "Time to take a long break!";
+    }
+}
+
+function switchTab(currentTab) {
+    if (currentTab === "work") {
+        workSwitch.classList.add("tab-active");
+        workSwitch.classList.remove("tab-inactive");
+        breakSwitch.classList.add("tab-inactive");
+        breakSwitch.classList.remove("tab-active");
+        longBreakSwitch.classList.add("tab-inactive");
+        longBreakSwitch.classList.remove("tab-active");
+    } else if (currentTab === "break") {
+        workSwitch.classList.add("tab-inactive");
+        workSwitch.classList.remove("tab-active");
+        breakSwitch.classList.add("tab-active");
+        breakSwitch.classList.remove("tab-inactive");
+        longBreakSwitch.classList.add("tab-inactive");
+        longBreakSwitch.classList.remove("tab-active");
+    }
+    if (currentTab === "long-break") {
+        workSwitch.classList.add("tab-inactive");
+        workSwitch.classList.remove("tab-active");
+        breakSwitch.classList.add("tab-inactive");
+        breakSwitch.classList.remove("tab-active");
+        longBreakSwitch.classList.add("tab-active");
+        longBreakSwitch.classList.remove("tab-inactive");
     }
 }
 
@@ -151,16 +181,19 @@ endButton.addEventListener ("click", () =>{
 workSwitch.addEventListener ("click", () => {
     currentTab = "work";
     switchMode("work");
+    switchTab("work");
 });
 
 breakSwitch.addEventListener ("click", () => {
     currentTab = "break";
     switchMode("break");
+    switchTab("break");
 });
 
 longBreakSwitch.addEventListener ("click", () => {
     currentTab = "long-break";
     switchMode("long-break");
+    switchTab("long-break");
 });
 
 //Intial
