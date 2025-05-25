@@ -15,7 +15,6 @@ let showTask = document.getElementById("show-task");
 let timer;
 let minutes;
 let seconds;
-let isPaused = false;
 let currentTab;
 let sessionCount = 1;
 
@@ -56,7 +55,6 @@ function endTimer() {
 }
 
 function timerCount() {
-    let targetedTab;
     console.log(minutes, seconds); // Debug
     if (minutes == 0 && seconds == 0) {
         console.log(currentTab);
@@ -133,6 +131,26 @@ function switchTab(currentTab) {
     }
 }
 
+//Functions for modes
+// function workMode() {
+//     minutes = 25;
+//     seconds = 0;
+//     timerInput.innerHTML = formatTime(minutes, seconds);
+// }
+
+// function breakMode() {
+//     minutes = 5;
+//     seconds = 0;
+//     timerInput.innerHTML = formatTime(minutes, seconds);
+// }
+
+// function longBreakMode() {
+//     minutes = 15;
+//     seconds = 0;
+//     timerInput.innerHTML = formatTime(minutes, seconds);
+// }
+
+//For Testing
 function workMode() {
     minutes = 0;
     seconds = 3;
@@ -177,6 +195,8 @@ startButton.addEventListener ("click", () => {
 endButton.addEventListener ("click", () =>{
     endTimer();
 });
+
+//Tab Switch
 
 workSwitch.addEventListener ("click", () => {
     currentTab = "work";
